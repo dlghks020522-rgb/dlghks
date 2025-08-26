@@ -1,4 +1,5 @@
 // frontend/src/App.jsx (디버깅용 console.log 추가 버전)
+"use client";
 
 import React, { useState } from 'react';
 import Lobby from './components/Lobby';
