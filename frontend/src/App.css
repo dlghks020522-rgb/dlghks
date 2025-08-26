@@ -1,0 +1,82 @@
+/* frontend/src/App.css (최종 완성본) */
+body {
+    background-color: #f0f0f0;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+}
+
+.game-container {
+    text-align: center;
+}
+
+.game-info {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(19, 30px);
+    grid-template-rows: repeat(19, 30px);
+
+    /* 배경을 이용해 격자무늬 그리기 */
+    background-color: #deb887;
+    background-image:
+        linear-gradient(to right, #a0522d 1px, transparent 1px),
+        linear-gradient(to bottom, #a0522d 1px, transparent 1px);
+    background-size: 30px 30px;
+
+    /* 가장자리 선이 보이도록 패딩 추가 */
+    padding: 15px;
+    border: 2px solid #a0522d;
+    position: relative; /* 자식 요소들의 기준점 */
+}
+
+/* Cell은 이제 투명한 클릭 영역 및 돌의 위치 기준점 역할만 합니다. */
+/* 디버깅을 위해 넣었던 background-color 속성을 완전히 제거합니다. */
+.cell {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    position: relative; 
+}
+
+/* 마우스 호버 효과 */
+.cell:hover::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    height: 85%;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+}
+
+/* 돌 스타일 정의 */
+.stone {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+
+    /* 위치를 교차점으로 이동시키는 핵심 로직 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.stone.black {
+    background-color: #111;
+}
+
+.stone.white {
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
