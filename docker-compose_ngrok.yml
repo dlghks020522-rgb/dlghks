@@ -1,0 +1,13 @@
+version: "3"
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+  ngrok:
+    image: ngrok/ngrok:latest
+    command: http frontend:3000
+    ports:
+      - "4040:4040" # ngrok 웹 인터페이스
+    environment:
+      NGROK_AUTHTOKEN: 31RcBhZBzu3gTxFXAHMe5Cpo3Re_4ieUmVdEzKtcjEUwyfs8y

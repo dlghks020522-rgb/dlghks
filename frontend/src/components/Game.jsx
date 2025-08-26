@@ -7,7 +7,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import Board from './Board';
 
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "http://20.41.121.23:8000";
 
 function Game({ settings, onGoBack }) {
     const { mode, difficulty } = settings;
